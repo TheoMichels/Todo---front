@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { TodoPage } from 'src/app/core/model/TodoPage';
+import { Page } from 'src/app/core/model/Page';
 import { TodoService } from 'src/app/core/service/api/to-do.service';
 import { ToDoBusinessService } from 'src/app/core/service/business/to-do-business.service';
 
@@ -11,7 +11,7 @@ import { ToDoBusinessService } from 'src/app/core/service/business/to-do-busines
 })
 export class ToDoListComponent implements OnInit {
 
-  pages!: Observable<TodoPage[]>;
+  pages!: Observable<Page[]>;
 
   constructor(
     private todoService: TodoService,
@@ -20,6 +20,12 @@ export class ToDoListComponent implements OnInit {
 
   ngOnInit(): void {
     this.pages = this.todoService.retrieveAllTodoPages();
+    // Set selected page to first page
+    this.pages.subscribe( pages => {
+      if (pages.length > 0) {
+        this.todoBusinessService.selectedTodoPage$.next(pages[0]);
+      }
+    });
   }
 
   public onTodoPage(id: number): void {

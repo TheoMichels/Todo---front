@@ -1,7 +1,7 @@
 <div class="menu">
     <div *ngFor = "let page of pages | async">
-        <button mat-button (click)="onTodoPage(page.id)">
+        <div class="pageItem" mat-button (click)="onTodoPage(page.id)">
             {{page.title}}
-        </button>
+        </div>
     </div>
 </div>

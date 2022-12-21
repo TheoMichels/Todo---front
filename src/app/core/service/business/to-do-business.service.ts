@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
-import { TodoPage } from '../../model/TodoPage';
+import { BehaviorSubject, tap } from 'rxjs';
+import { Page } from '../../model/Page';
 import { TodoService } from '../api/to-do.service';
 
 @Injectable({
@@ -8,7 +8,7 @@ import { TodoService } from '../api/to-do.service';
 })
 export class ToDoBusinessService {
 
-  selectedTodoPage$ = new BehaviorSubject<TodoPage>(new TodoPage());
+  selectedTodoPage$ = new BehaviorSubject<Page>(new Page());
 
   constructor(
     private todoService: TodoService

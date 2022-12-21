@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Subject, Observable } from 'rxjs';
-import { TodoPage } from 'src/app/core/model/TodoPage';
+import { Page } from 'src/app/core/model/Page';
 import { TodoService } from 'src/app/core/service/api/to-do.service';
 import { ToDoBusinessService } from 'src/app/core/service/business/to-do-business.service';
 
@@ -11,7 +11,7 @@ import { ToDoBusinessService } from 'src/app/core/service/business/to-do-busines
 })
 export class ToDoPageComponent implements OnInit {
 
-  selectedTodoPage!: Observable<TodoPage>;
+  selectedTodoPage!: Observable<Page>;
 
   ngUnsubscribe = new Subject();
 
@@ -21,6 +21,9 @@ export class ToDoPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.selectedTodoPage = this.todoBusinessService.selectedTodoPage$;
-    console.log("test " + this.selectedTodoPage);
+  }
+
+  protected completeTask(id: number): void {
+
   }
 }

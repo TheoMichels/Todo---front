@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { TodoTask } from 'src/app/core/model/TodoTask';
+import { Task } from 'src/app/core/model/Task';
 import { Input } from '@angular/core';
 
 @Component({
@@ -10,7 +10,7 @@ import { Input } from '@angular/core';
 export class ToDoTaskComponent implements OnInit {
 
   @Input()
-  task!: TodoTask;
+  task!: Task;
 
   constructor() { }
 
