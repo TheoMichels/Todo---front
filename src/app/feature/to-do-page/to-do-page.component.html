@@ -1,0 +1,8 @@
+<div class="page" *ngIf="selectedTodoPage! | async; let page">
+        <div class="title">{{page.title}}</div>
+        <div class="taskList">
+                <div *ngFor="let task of page.tasks">
+                        <app-to-do-task [task]="task"></app-to-do-task>
+                </div>
+        </div>
+</div>
